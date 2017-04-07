@@ -72,11 +72,9 @@ class BaseStuff: StuffTouches {
     }
 }
 
-class CoolStuff: BaseStuff {
-    
-}
 
-class TypeAStuff: CoolStuff {
+
+class TypeAStuff: BaseStuff {
     override func begin() {
         super.begin()
         print("A BEGIN")
@@ -86,19 +84,19 @@ class TypeAStuff: CoolStuff {
     }
 }
 
-class TypeBStuff: CoolStuff {
+class TypeBStuff: BaseStuff {
     override func begin() {
         print("B BEGIN")
     }
 }
 
-class TypeCStuff: CoolStuff {
+class TypeCStuff: BaseStuff {
     override func moves() {
         print("C Moves")
     }
 }
 
-class TypeDStuff: CoolStuff {
+class TypeDStuff: BaseStuff {
     override func begin() {
         print("D BEGIN")
     }
@@ -111,7 +109,7 @@ class TypeDStuff: CoolStuff {
 
 //TypeDStuff().begin()
 var stuff = TypeCStuff() as BaseStuff
-stuff.superStuff = CoolStuff()
+stuff.superStuff = BaseStuff()
 print("Event 1 - Touches begin")
 stuff.stuff()
 print("Event 2 - Continues")
